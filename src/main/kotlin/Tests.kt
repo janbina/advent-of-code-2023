@@ -14,6 +14,7 @@ fun testAll() {
 
 private val expectedResults = sortedMapOf(
     1 to Result(56049, 54530),
+    2 to Result(2164, 69929),
 )
 
 private class Result(
