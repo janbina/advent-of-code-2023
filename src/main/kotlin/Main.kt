@@ -9,7 +9,7 @@ fun main() {
     measureTimeMillis {
         runDay(getCurrentDay())
     }.also {
-        println("Time taken: $it")
+        println("time taken: $it")
     }
     testAll()
 }
@@ -27,7 +27,7 @@ private fun runDay(
 ) {
     val inputReader = getDayInputFile(dayNumber).getOrThrow().bufferedReader()
     val day = createDay(dayNumber, inputReader)
-    println("Solving Day $dayNumber")
-    println("\tPart 1 = ${day.solvePart1()}")
-    println("\tPart 2 = ${day.solvePart2()}")
+    println("solving day $dayNumber")
+    println("\tpart 1 = ${day.solvePart1()}")
+    println("\tpart 2 = ${day.solvePart2()}")
 }
