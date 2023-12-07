@@ -1,20 +1,26 @@
+import kotlin.system.measureTimeMillis
+
 fun testAll() {
     println("running tests..")
-    expectedResults.forEach { (dayNo, result) ->
-        val input = getDayInputFile(dayNo).getOrThrow().bufferedReader()
-        val day = createDay(dayNo, input)
-        print("day $dayNo")
-        result.p1?.let {
-            require(it == day.solvePart1())
-            print(" p1✓")
+    val time = measureTimeMillis {
+        expectedResults.forEach { (dayNo, result) ->
+            val dayTime = measureTimeMillis {
+                val input = getDayInputFile(dayNo).getOrThrow().bufferedReader()
+                val day = createDay(dayNo, input)
+                print("day $dayNo")
+                result.p1?.let {
+                    require(it == day.solvePart1())
+                    print(" p1✓")
+                }
+                result.p2?.let {
+                    require(it == day.solvePart2())
+                    print(" p2✓")
+                }
+            }
+            println(" $dayTime ms")
         }
-        result.p2?.let {
-            require(it == day.solvePart2())
-            print(" p2✓")
-        }
-        println()
     }
-    println("tests ok!")
+    println("tests ok! $time ms")
 }
 
 private val expectedResults = sortedMapOf(
