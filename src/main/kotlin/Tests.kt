@@ -1,4 +1,3 @@
-
 fun testAll() {
     println("running tests..")
     expectedResults.forEach { (dayNo, result) ->
@@ -25,6 +24,7 @@ private val expectedResults = sortedMapOf(
     4 to Result(20667, 5833065),
     5 to Result(382895070L, 17729182L),
     6 to Result(4568778L, 28973936L),
+    7 to Result(253313241, 253362743),
 )
 
 private class Result(
