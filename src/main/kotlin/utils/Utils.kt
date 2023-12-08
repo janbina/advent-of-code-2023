@@ -1,5 +1,7 @@
 package utils
 
+import kotlin.math.absoluteValue
+
 fun <T> List<T>.uniquePairs(): Sequence<Pair<T, T>> = sequence {
     for (i in 0..lastIndex) {
         for (j in i + 1..lastIndex) {
@@ -218,4 +220,24 @@ fun <T> Array<Array<T>>.forEachIndexed(
 
 fun String.splitOnWhitespace(): List<String> {
     return this.split("\\s+".toPattern())
+}
+
+fun gcd(a: Long, b: Long): Long {
+    var n1 = a.absoluteValue
+    var n2 = b.absoluteValue
+    while (n1 != n2) {
+        if (n1 > n2)
+            n1 -= n2
+        else
+            n2 -= n1
+    }
+    return n1
+}
+
+fun lcm(a: Long, b: Long): Long {
+    return a * b / gcd(a, b)
+}
+
+fun lcm(c: Iterable<Long>): Long {
+    return c.reduce { acc, l -> lcm(acc, l) }
 }
