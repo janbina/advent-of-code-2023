@@ -63,6 +63,9 @@ data class Point2D(val x: Int, val y: Int) {
 }
 
 data class Move(val dx: Int, val dy: Int) {
+
+    fun inverted() = Move(dx * -1, dy * -1)
+
     companion object {
         val up = Move(0, -1)
         val down = Move(0, 1)

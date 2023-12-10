@@ -7,7 +7,7 @@ fun testAll() {
             val dayTime = measureTimeMillis {
                 val input = getDayInputFile(dayNo).getOrThrow().bufferedReader()
                 val day = createDay(dayNo, input)
-                print("day $dayNo")
+                print("day ${dayNo.toString().padStart(2, '0')}")
                 result.p1?.let {
                     require(it == day.solvePart1())
                     print(" p1✓")
@@ -33,6 +33,7 @@ private val expectedResults = sortedMapOf(
     7 to Result(253313241, 253362743),
     8 to Result(19783, 9177460370549L),
     9 to Result(1955513104, 1131),
+    10 to Result(6907, 541),
 )
 
 private class Result(
