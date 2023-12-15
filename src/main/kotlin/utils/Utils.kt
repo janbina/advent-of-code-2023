@@ -241,3 +241,19 @@ fun lcm(a: Long, b: Long): Long {
 fun lcm(c: Iterable<Long>): Long {
     return c.reduce { acc, l -> lcm(acc, l) }
 }
+
+fun <T> Collection<T>.split(condition: (T) -> Boolean): List<List<T>> {
+    val collection = this
+    val currentList = mutableListOf<T>()
+    return buildList {
+        for (item in collection) {
+            if (condition(item)) {
+                add(currentList.toList())
+                currentList.clear()
+            } else {
+                currentList += item
+            }
+        }
+        add(currentList.toList())
+    }
+}
