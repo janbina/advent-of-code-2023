@@ -34,6 +34,7 @@ private val expectedResults = sortedMapOf(
     8 to Result(19783, 9177460370549L),
     9 to Result(1955513104, 1131),
     10 to Result(6907, 541),
+    11 to Result(9536038L, 447744640566L),
 )
 
 private class Result(
